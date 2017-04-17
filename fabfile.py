@@ -26,8 +26,8 @@ env.hosts = ['localhost']
 
 def check_system_support():
     # check hardware support
-    if run("egrep '^flags.*(vmx|svm)' /proc/cpuinfo > /dev/null").failed:
-        abort("Need hardware VM support (vmx)")
+#    if run("egrep '^flags.*(vmx|svm)' /proc/cpuinfo > /dev/null").failed:
+#        abort("Need hardware VM support (vmx)")
 
     # check minimum kernel version:
     #   Linux kernel under 3.13.0 has a bug where the kernel crash 
@@ -41,12 +41,12 @@ def check_system_support():
 
     # check OS version
     cmd = "cat /etc/lsb-release | grep DISTRIB_CODENAME | awk -F'=' '{print $2}'"
-    with settings(hide('everything'), warn_only=True):
-        os_dist = run(cmd)
-        if os_dist != 'trusty' and os_dist != "xenial":
-            msg = "Support only Ubuntu Precise (14.04) or Ubuntu Trusty (16.04)"
-            abort(msg)
-        return os_dist
+#    with settings(hide('everything'), warn_only=True):
+#        os_dist = run(cmd)
+#        if os_dist != 'trusty' and os_dist != "xenial":
+#            msg = "Support only Ubuntu Precise (14.04) or Ubuntu Trusty (16.04)"
+#            abort(msg)
+#        return os_dist
     return None
 
 
